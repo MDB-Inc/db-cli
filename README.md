@@ -1,6 +1,9 @@
 # db-cli
-Github repo 및 commit id 기반으로 AWS S3 로의 DB 백업/복원을 지원하는 CLI
+Github repo 및 commit id 기반으로 AWS S3 로의 DB 백업/복원을 지원하는 CLI 이며,
 개발용으로 데이터를 채운 DB 를 백업하거나 공유하는 것을 목적으로 개발함.
+
+**Cookie cutter Django 의 local(dev)환경, Postgresql Docker 를 기준으로 동작함.**
+
 
 ## Prerequisite
 * python >= 3.8
