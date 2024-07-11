@@ -1,5 +1,32 @@
 # db-cli
-db-cli
+Github repo 및 commit id 기반으로 AWS S3 로의 DB 백업/복원을 지원하는 CLI
+개발용으로 데이터를 채운 DB 를 백업하거나 공유하는 것을 목적으로 개발함.
+
+## Prerequisite
+* python >= 3.8
+* aws cli
+  * https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html
+
+## Installation
+1. clone and register
+```shell
+git clone git@github.com:MDB-Inc/db-cli.git
+db-cli/install.sh 
+```
+No further python package installation is required.
+
+2. aws cli login
+    * https://www.notion.so/mdbtech/AWS-cli-66da9526c2d34007aeea4a8d8f6dbe97?pvs=4
+```shell
+aws configure sso
+```
+
+3. settings.py
+```python
+AWS_PROFILE = "YourRole-123456789012"
+BUCKET_NAME = "s3-bucket-name"
+```
+done!
 
 ## Usage
 ### push (local DB > S3)
@@ -42,12 +69,6 @@ db pull v3_postgres myfooid
 ```shell
 db pull v3_postgres --latest
 ```
-
-## AWS Cli 설치 필요
-* `aws configure sso` 를 통한 로그인 필요
-* 이후 `--profile` 인자를 settings.py `AWS_PROFILE`에 세팅 필요함.
-* aws cli 로그인은 아래 링크 참조
-https://www.notion.so/mdbtech/AWS-cli-66da9526c2d34007aeea4a8d8f6dbe97?pvs=4
 
 ## 주의사항
 * git repo 명칭과 commit id 기반으로 동작하며, 현재 실행된 디렉터리의 git 정보를 기반으로 동작함.
